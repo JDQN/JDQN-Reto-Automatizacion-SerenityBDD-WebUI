@@ -4,6 +4,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
 import static org.openqa.selenium.By.id;
+import static org.openqa.selenium.By.xpath;
 
 public class FacturaEnvioInterface extends PageObject {
 	
@@ -27,6 +28,15 @@ public class FacturaEnvioInterface extends PageObject {
            .the("Apellido")
            .located(id("billing_last_name"));
 	
+	
+	public static final Target CLICK_DEPARTMENT = Target
+         .the("Click departamento")
+         .located(id("billing_state"));
+	
+	
+	public static final Target CIUDAD = Target
+          .the("Click departamento")
+          .located(xpath("//*[@id=\"billing_city\"]"));
 	
 	public static final Target ADDRESS = Target
             .the("Direccion")

@@ -3,9 +3,8 @@ package co.com.sofka.tasks.facturaEnvio;
 import co.com.sofka.models.FacturaEnvio;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Clear;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.actions.SelectFromOptions;
 
 import static co.com.sofka.productInterface.facturaEnvio.FacturaEnvioInterface.*;
 
@@ -37,9 +36,16 @@ public class FacturaEnvioTask implements Task {
 				Clear.field(FIRST_NAME),
 				Enter.theValue(formularioEnvio.getFirstName()).into(FIRST_NAME),
 				
+				
 				Scroll.to(lAST_NAME),
 				Clear.field(lAST_NAME),
 				Enter.theValue(formularioEnvio.getLastName()).into(lAST_NAME),
+				
+				Scroll.to(CLICK_DEPARTMENT),
+				SelectFromOptions.byVisibleText(formularioEnvio.getDepartamento()).from(CLICK_DEPARTMENT),
+				
+				Scroll.to(CIUDAD),
+				SelectFromOptions.byVisibleText(formularioEnvio.getCiudad()).from(CIUDAD),
 				
 				Scroll.to(ADDRESS),
 				Clear.field(ADDRESS),
@@ -47,11 +53,11 @@ public class FacturaEnvioTask implements Task {
 				
 				
 				Clear.field(BUILDING_NUMBER),
-				Enter.theValue(formularioEnvio.getAddress()).into(BUILDING_NUMBER),
+				Enter.theValue(formularioEnvio.getBuildingNumber()).into(BUILDING_NUMBER),
 				
 				Scroll.to(PHONE_NUMBER),
 				Clear.field(PHONE_NUMBER),
-				Enter.theValue(formularioEnvio.getEmail()).into(PHONE_NUMBER)
+				Enter.theValue(formularioEnvio.getPhoneNumber()).into(PHONE_NUMBER)
 		);
 	}
 	
@@ -61,6 +67,8 @@ public class FacturaEnvioTask implements Task {
 		private String email;
 		private String firstName;
 		private String lastName;
+		private String departamento;
+		private String ciudad;
 		private String address;
 		private String buildingNumber;
 		private String phoneNumber;
@@ -84,6 +92,16 @@ public class FacturaEnvioTask implements Task {
 			return this;
 		}
 		
+		public ResgistroUsuario usingDepartamento(String departamento) {
+			this.departamento = departamento;
+			return this;
+		}
+		
+		public ResgistroUsuario usingCiudad(String ciudad) {
+			this.ciudad = ciudad;
+			return this;
+		}
+		
 		public ResgistroUsuario usingAddress(String address) {
 			this.address = address;
 			return this;
@@ -94,6 +112,11 @@ public class FacturaEnvioTask implements Task {
 			return this;
 		}
 		
+		public ResgistroUsuario usingPhoneNumber(String phoneNumber) {
+			this.phoneNumber = phoneNumber;
+			return this;
+		}
+		
 		public FacturaEnvioTask andPassword(String phoneNumber) {
 			this.phoneNumber = phoneNumber;
 			return new FacturaEnvioTask(FacturaEnvio.builder()
@@ -101,6 +124,8 @@ public class FacturaEnvioTask implements Task {
                     .email(this.email)
                     .firstName(this.firstName)
                     .lastName(this.lastName)
+                    .departamento(this.departamento)
+                    .ciudad(this.ciudad)
                     .address(this.address)
                     .buildingNumber(this.buildingNumber)
                     .phoneNumber(this.phoneNumber)

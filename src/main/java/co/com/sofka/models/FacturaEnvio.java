@@ -13,6 +13,8 @@ public class FacturaEnvio {
 	private String email;
 	private String firstName;
 	private String lastName;
+	private String departamento;
+	private String ciudad;
 	private String address;
 	private String buildingNumber;
 	private String phoneNumber;

@@ -15,7 +15,7 @@ public class FinalizarCompra implements Task {
 			actor.attemptsTo(
 					Click.on(AGREGARCART),
 					Scroll.to(BTNFINALIZAR),
-					Click.on(FINALIZAR)
+					Click.on(BTNFINALIZAR)
 			);
 		}catch (Exception exception) {
 			throw new RuntimeException(exception);

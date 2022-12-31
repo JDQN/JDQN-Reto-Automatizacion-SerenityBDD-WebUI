@@ -19,6 +19,9 @@ import static co.com.sofka.tasks.finalizarCompra.FinalizarCompra.finalizarCompra
 import static co.com.sofka.tasks.openLandingPage.openLandingPage;
 import static co.com.sofka.tasks.paginaOferta.PaginaOferta.paginaOferta;
 import static co.com.sofka.tasks.agregarCarrito.AgregarCarrito.agregarCarrito;
+import static co.com.sofka.tasks.pedidoCompleto.PedidoCompletoTask.pedidoCompletoTask;
+import static co.com.sofka.tasks.realizarPedido.RealizarPedidoTask.realizarPedidoTask;
+import static co.com.sofka.tasks.terminosCondiciones.TerminosCondiciones.terminosCondiciones;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 
@@ -49,9 +52,9 @@ public class CompraExitosaStepDefinition extends Setup {
 					(Performable) paginaOferta(),
 					agregarCarrito(),
 					agregarCarrito(),
-					agregarCarrito()
+					agregarCarrito(),
+					finalizarCompra()
 			);
-			Thread.sleep(6000);
 		}catch (Exception exception){
 			Assertions.fail(exception.getMessage(), exception);
 			LOGGER.error(exception.getMessage(), exception);
@@ -60,10 +63,21 @@ public class CompraExitosaStepDefinition extends Setup {
 	@And("da click en finalizar compra diligenciar el formulario correctamente")
 	public void daClickEnFinalizarCompraDiligenciarElFormularioCorrectamente() {
 		try {
+			UsuarioData();
 			theActorInTheSpotlight().attemptsTo(
-					finalizarCompra()
+					FacturaEnvioTask.withId(String.valueOf(facturaEnvio.getId()))
+							.usingEmail(facturaEnvio.getEmail())
+							.usingFirsName(facturaEnvio.getFirstName())
+							.usingLastName(facturaEnvio.getLastName())
+							.usingDepartamento(facturaEnvio.getDepartamento())
+							.usingCiudad(facturaEnvio.getCiudad())
+							.usingAddress(facturaEnvio.getAddress())
+							.usingBuildingNumber(facturaEnvio.getBuildingNumber())
+							.andPassword(facturaEnvio.getPhoneNumber()),
+					
+					terminosCondiciones(),
+					realizarPedidoTask()
 			);
-			Thread.sleep(6000);
 		}catch (Exception exception){
 			Assertions.fail(exception.getMessage(), exception);
 			LOGGER.error(exception.getMessage(), exception);
@@ -72,15 +86,8 @@ public class CompraExitosaStepDefinition extends Setup {
 	@Then("aparece un mensaje Gracias. Tu pedido ha sido recibido.")
 	public void apareceUnMensajeGraciasTuPedidoHaSidoRecibido() {
 		try {
-			UsuarioData();
 			theActorInTheSpotlight().attemptsTo(
-				FacturaEnvioTask.withId(String.valueOf(facturaEnvio.getId()))
-						.usingEmail(facturaEnvio.getEmail())
-						.usingFirsName(facturaEnvio.getFirstName())
-						.usingLastName(facturaEnvio.getLastName())
-						.usingAddress(facturaEnvio.getAddress())
-						.usingBuildingNumber(facturaEnvio.getBuildingNumber())
-						.andPassword(facturaEnvio.getPhoneNumber())
+					pedidoCompletoTask()
 			);
 		}catch (Exception exception){
 			Assertions.fail(exception.getMessage(), exception);
@@ -95,12 +102,15 @@ public class CompraExitosaStepDefinition extends Setup {
 		String id = String.valueOf(faker.number().numberBetween(100000,1000000));
 		String firstName = faker.name().firstName();
 		String lastName = faker.name().lastName();
+		String departamento = "Amazonas";
+		String ciudad = "La Pedrera - 917010";
 		String email = firstName + lastName + "@gmail.com";
 		String address = faker.address().fullAddress();
 		String buildingNumber = faker.address().buildingNumber();
-		String phoneNumber = faker.phoneNumber().cellPhone();
+		String phoneNumber = ("3254587854");
+		//String phoneNumber = faker.phoneNumber().cellPhone();
 		
-		facturaEnvio = new FacturaEnvio (id,email,firstName,lastName,address,buildingNumber,phoneNumber);
+		facturaEnvio = new FacturaEnvio (id,email,firstName,lastName,departamento,ciudad,address,buildingNumber,phoneNumber);
 		
 	}
 	
