@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="a764b2691bd20da13c550dbd5cd1cf82f188edc246ea9a6474602d50f6245234.html">El Usurio Realizar La Compra De Suplementos Deportivos</a></span>
+                > <span class="truncate-60"><a
+                    href="8946642d33df06f43d6db3db26fa66407d44f096aa33a0db30d150dbf76998ec.html">01 - Se realiza la compra exitosa de los suplementos deportivos </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 30-12-2022 19:01</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">El Usurio Realizar La Compra De Suplementos Deportivos </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                en el aplicativo zonafit
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">01 - Se realiza la compra exitosa de los suplementos deportivos
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="ccee3ce00b5e9a9f649513c1047b4cc7239699ec6875f6a50eb195551fb49b33.png" title=" Given el usuario esta en la pagina de inicio del aplicativo zonafit" width="1366"/>
+                <img src="ccee3ce00b5e9a9f649513c1047b4cc7239699ec6875f6a50eb195551fb49b33.png" title=" Messi open landing page" width="1366"/>
+                <img src="ccee3ce00b5e9a9f649513c1047b4cc7239699ec6875f6a50eb195551fb49b33.png" title=" Messi opens the Landing page" width="1366"/>
+                <img src="2f23b2dd43b3b58ede384b9a124b228a6ff1b15eea92e3d5e8ab5812daeaa505.png" title=" Messi opens the Landing page (completed)" width="1366"/>
+                <img src="2f23b2dd43b3b58ede384b9a124b228a6ff1b15eea92e3d5e8ab5812daeaa505.png" title=" Messi open landing page (completed)" width="1366"/>
+                <img src="2f23b2dd43b3b58ede384b9a124b228a6ff1b15eea92e3d5e8ab5812daeaa505.png" title=" Given el usuario esta en la pagina de inicio del aplicativo zonafit (completed)" width="1366"/>
+                <img src="1b8067df7a352476ff99986a0039b8d39e31414350493b871f1c2a221da40909.png" title=" When selecciono los productos para agregar al carrtio de compras" width="1366"/>
+                <img src="1b8067df7a352476ff99986a0039b8d39e31414350493b871f1c2a221da40909.png" title=" Messi pagina oferta" width="1366"/>
+                <img src="1b8067df7a352476ff99986a0039b8d39e31414350493b871f1c2a221da40909.png" title=" Messi agregar carrito" width="1366"/>
+                <img src="e6e3b104464b88d7061ede24ad8abffd09d198662857396c3bbd87c89ae286dc.png" title=" Messi clicks on Boton Ofertas" width="1366"/>
+                <img src="db935a41a59b45e112a1effe32e1f0af1b2df01c3a8b67a93bc0e8fbb02d1965.png" title=" Messi clicks on Boton Ofertas (completed)" width="1366"/>
+                <img src="db935a41a59b45e112a1effe32e1f0af1b2df01c3a8b67a93bc0e8fbb02d1965.png" title=" Messi clicks on btnClose" width="1366"/>
+                <img src="7969a2f3d84dc5b98881d4954f7b8b84daccc3d7aa736a02ce54b9405e16f094.png" title=" Messi clicks on btnClose (completed)" width="1366"/>
+                <img src="7969a2f3d84dc5b98881d4954f7b8b84daccc3d7aa736a02ce54b9405e16f094.png" title=" Messi agregar carrito (completed)" width="1366"/>
+                <img src="7969a2f3d84dc5b98881d4954f7b8b84daccc3d7aa736a02ce54b9405e16f094.png" title=" Messi agregar carrito" width="1366"/>
+                <img src="14b2b062696da087f4ea49ab2837319c1c9f73d4afb14e65120050a14ea5d3cf.png" title=" Messi clicks on Boton Ofertas" width="1366"/>
+                <img src="1facff8b42dcc0e35e6c1b9a384505f852c0c63cca21ef4d6832d62c897f81b6.png" title=" Messi clicks on Boton Ofertas (completed)" width="1366"/>
+                <img src="1facff8b42dcc0e35e6c1b9a384505f852c0c63cca21ef4d6832d62c897f81b6.png" title=" Messi clicks on btnClose" width="1366"/>
+                <img src="ecf497d12ed73ce32fee8c2ed6d7c530b51ac7a610811dbddd081f9633c6b469.png" title=" Messi clicks on btnClose (completed)" width="1366"/>
+                <img src="ecf497d12ed73ce32fee8c2ed6d7c530b51ac7a610811dbddd081f9633c6b469.png" title=" Messi agregar carrito (completed)" width="1366"/>
+                <img src="ecf497d12ed73ce32fee8c2ed6d7c530b51ac7a610811dbddd081f9633c6b469.png" title=" Messi agregar carrito" width="1366"/>
+                <img src="ef1aa2bdbfa9cdd98f7e374a847b1b50d402640b13019c0ad9472a2ab935c576.png" title=" Messi clicks on Boton Ofertas" width="1366"/>
+                <img src="ff4e38f91915759487f6285cbeaf24f468b7ee105713c1ea15b259a4cd9d8d0e.png" title=" Messi clicks on Boton Ofertas (completed)" width="1366"/>
+                <img src="ff4e38f91915759487f6285cbeaf24f468b7ee105713c1ea15b259a4cd9d8d0e.png" title=" Messi clicks on btnClose" width="1366"/>
+                <img src="0615d4f71b1f0b6af6e89850d3008a9c4f524a2d83d1391b7927781f7844badb.png" title=" Messi clicks on btnClose (completed)" width="1366"/>
+                <img src="0615d4f71b1f0b6af6e89850d3008a9c4f524a2d83d1391b7927781f7844badb.png" title=" Messi agregar carrito (completed)" width="1366"/>
+                <img src="dba7f2cbf04517564ea98d4ca60d3c3d9e5db1f92da895180d0974a497970354.png" title=" When selecciono los productos para agregar al carrtio de compras (completed)" width="1366"/>
+                <img src="58d77b35ec3641121c978d8f03ae14f62c6563a2fcbce864f944c26d170af26e.png" title=" And da click en finalizar compra diligenciar el formulario correctamente" width="1366"/>
+                <img src="58d77b35ec3641121c978d8f03ae14f62c6563a2fcbce864f944c26d170af26e.png" title=" Messi finalizar compra" width="1366"/>
+                <img src="58d77b35ec3641121c978d8f03ae14f62c6563a2fcbce864f944c26d170af26e.png" title=" Messi clicks on Boton Ofertas" width="1366"/>
+                <img src="b95c2af9c2144d812be3c58965893dd2c2017ae0974341830058673b6e7358a8.png" title=" Messi clicks on btnClose" width="1366"/>
+                <img src="60a565625e74a43c0940953a2992443276356dbd5a55fac55c8a0a41d707b857.png" title=" Messi clicks on btnClose (completed)" width="1366"/>
+                <img src="60a565625e74a43c0940953a2992443276356dbd5a55fac55c8a0a41d707b857.png" title=" Messi finalizar compra (completed)" width="1366"/>
+                <img src="1c67dfbbd0f594a7581c9f93dd0fdd410dbfef8af2d303b7e61eca8644111b72.png" title=" And da click en finalizar compra diligenciar el formulario correctamente (completed)" width="1366"/>
+                <img src="56cea3c0c2bff2d40018a2be2e1ceb32a5b03ce7419bd8fc74e6f96db2a2d9d1.png" title=" Then aparece un mensaje Gracias. Tu pedido ha sido recibido." width="1366"/>
+                <img src="56cea3c0c2bff2d40018a2be2e1ceb32a5b03ce7419bd8fc74e6f96db2a2d9d1.png" title=" Messi clears field Numero de documento" width="1366"/>
+                <img src="2b24ebc6d59457d768bc8c1c097615102537247b095641938ef1c776d25948bc.png" title=" Messi clears field Numero de documento (completed)" width="1366"/>
+                <img src="2b24ebc6d59457d768bc8c1c097615102537247b095641938ef1c776d25948bc.png" title=" Messi enters '771008' into Numero de documento" width="1366"/>
+                <img src="ab91c45183ae5a5aa824a36a6e77b16d9afc2d2c9d89d76960aac10a269719a5.png" title=" Messi enters '771008' into Numero de documento (completed)" width="1366"/>
+                <img src="f57d03a914c73ac0eee2b09f325c1c04b11c16033c8a880f9c7f6ff2ae2c34c8.png" title=" Messi clears field Email" width="1366"/>
+                <img src="658c39d4cf92b360463af0fd81ab4a78909da4e6aaf6a2b47795b6b2bd57cc50.png" title=" Messi clears field Email (completed)" width="1366"/>
+                <img src="658c39d4cf92b360463af0fd81ab4a78909da4e6aaf6a2b47795b6b2bd57cc50.png" title=" Messi enters 'CarlynSmith@gmail.com' into Email" width="1366"/>
+                <img src="00db2d85934205d56ec944dcec2e534c8877272ed2cf24157662428ac24b2573.png" title=" Messi enters 'CarlynSmith@gmail.com' into Email (completed)" width="1366"/>
+                <img src="566921a53003b77292a12f29a637159afdae6dd9383de3d5f6ba89e7732be8e6.png" title=" Messi clears field Nombre" width="1366"/>
+                <img src="1dbb873d827c88e97a483d064fd33464bc1d958a7a115ab3b8b990558b26bd6d.png" title=" Messi clears field Nombre (completed)" width="1366"/>
+                <img src="1dbb873d827c88e97a483d064fd33464bc1d958a7a115ab3b8b990558b26bd6d.png" title=" Messi enters 'Carlyn' into Nombre" width="1366"/>
+                <img src="e01aaaadc8f5fa8f5946ced141bbf87f5d849a7153daf64c939b1aa42572d98a.png" title=" Messi enters 'Carlyn' into Nombre (completed)" width="1366"/>
+                <img src="db9dc24ebb6fb6ca3d6b72ec2a40524f5a0f0e3485f5957a95bfdc4362d6f69b.png" title=" Messi clears field Apellido" width="1366"/>
+                <img src="f0db2ef31e112916698592534f42522cb33aaa51be2326b9c8c56db3c8eb0f3a.png" title=" Messi clears field Apellido (completed)" width="1366"/>
+                <img src="f0db2ef31e112916698592534f42522cb33aaa51be2326b9c8c56db3c8eb0f3a.png" title=" Messi enters 'Smith' into Apellido" width="1366"/>
+                <img src="90fb49e9b0b21eaff1b736d5076607ea12ce647f119e95980b0fbe5bf3b63ff2.png" title=" Messi enters 'Smith' into Apellido (completed)" width="1366"/>
+                <img src="445dc06265ffaf8adf8d27fcd741c240bbd40935603e2a9321321271405f644c.png" title=" Messi clears field Direccion" width="1366"/>
+                <img src="f18a2116331398b99904809ab698a3d2fcb38162300e612f53d7a1b34e7052ba.png" title=" Messi clears field Direccion (completed)" width="1366"/>
+                <img src="f18a2116331398b99904809ab698a3d2fcb38162300e612f53d7a1b34e7052ba.png" title=" Messi enters 'Suite 226 03128 Monnie Street, Lake Toddton, GA 86925' into Direccion" width="1366"/>
+                <img src="33f3aa768847261f5fc500b3e95225262c0a3bb18c4c1e63d1c907700ceba2a6.png" title=" Messi enters 'Suite 226 03128 Monnie Street, Lake Toddton, GA 86925' into Direccion (completed)" width="1366"/>
+                <img src="33f3aa768847261f5fc500b3e95225262c0a3bb18c4c1e63d1c907700ceba2a6.png" title=" Messi clears field Apartamento" width="1366"/>
+                <img src="011099f1c7e7a21cf8e48cadecbfca7a55d34f51d74aaad46ec858ae530aac70.png" title=" Messi clears field Apartamento (completed)" width="1366"/>
+                <img src="011099f1c7e7a21cf8e48cadecbfca7a55d34f51d74aaad46ec858ae530aac70.png" title=" Messi enters 'Suite 226 03128 Monnie Street, Lake Toddton, GA 86925' into Apartamento" width="1366"/>
+                <img src="1a02abe4b9b80f40fdbcc6fd4697ea20f15ae271dd67f46d2b1c70254ea768d0.png" title=" Messi enters 'Suite 226 03128 Monnie Street, Lake Toddton, GA 86925' into Apartamento (completed)" width="1366"/>
+                <img src="482140c6121c835930c91338dee5931e364c5120c4b26c6853a24008f2ffb725.png" title=" Messi clears field Numero de celular" width="1366"/>
+                <img src="00044164fc8ae9d31e99233394b55315a57b90e8303ce475e7f6fc0c9e708585.png" title=" Messi clears field Numero de celular (completed)" width="1366"/>
+                <img src="00044164fc8ae9d31e99233394b55315a57b90e8303ce475e7f6fc0c9e708585.png" title=" Messi enters 'CarlynSmith@gmail.com' into Numero de celular" width="1366"/>
+                <img src="ea5a027de02e9518901db5db3d5c5674fe582495c9cd09de3fc8d9d411ec86c5.png" title=" Messi enters 'CarlynSmith@gmail.com' into Numero de celular (completed)" width="1366"/>
+                <img src="ea5a027de02e9518901db5db3d5c5674fe582495c9cd09de3fc8d9d411ec86c5.png" title=" Then aparece un mensaje Gracias. Tu pedido ha sido recibido. (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.6.0</span>
+</div>
+</body>
+</html>

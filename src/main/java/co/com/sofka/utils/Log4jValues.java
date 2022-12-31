@@ -1,10 +1,10 @@
 package co.com.sofka.utils;
 
 public enum Log4jValues {
-	
-	LOG4J2_PROPERTIES_FILE_PATH("./src/main/resources/log4j2.properties");
+	LOG4J_PROPERTIES_FILE_PATH("\\src\\main\\resources\\log4j2.properties");
 	
 	private final String value;
+	
 	Log4jValues(String value) {
 		this.value = value;
 	}
@@ -13,4 +13,3 @@ public enum Log4jValues {
 		return value;
 	}
 }
-
