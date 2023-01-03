@@ -7,6 +7,13 @@ import net.serenitybdd.screenplay.actions.DoubleClickOnTarget;
 import static co.com.sofka.product_interface.pagina_oferta.BrowserPaginaOferta.ELEMENTS;
 import static jxl.biff.FormatRecord.logger;
 
+
+/**
+ * Esta clase permite ejecutar los metodos relacionados con
+ * darle click al check utilizando js
+ * @class PaginaOferta
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class PaginaOferta implements Task {
 	@Override
 	public <T extends Actor> void performAs(T actor) {

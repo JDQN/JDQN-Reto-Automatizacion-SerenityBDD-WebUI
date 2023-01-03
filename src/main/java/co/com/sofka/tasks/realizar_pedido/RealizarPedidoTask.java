@@ -7,7 +7,12 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import static co.com.sofka.interactions.Click.clickOn;
 import static co.com.sofka.product_interface.pagina_oferta.BrowserPaginaOferta.REALIZARPEDIDO;
 
-
+/**
+ * Esta clase permite ejecutar los metodos para hacer scroll a la pagina
+ * y poder dar click en realizar pedido
+ * @class RealizarPedidoTask
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class RealizarPedidoTask implements Task {
 	
 	@Override

@@ -8,6 +8,12 @@ import static co.com.sofka.product_interface.pagina_oferta.BrowserPaginaOferta.P
 import static jxl.biff.FormatRecord.logger;
 
 
+/**
+ * Esta clase permite ejecutar los metodos relacionados
+ * pedido completado
+ * @class PedidoCompletoTask
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class PedidoCompletoTask implements Task {
 	
 	@Override

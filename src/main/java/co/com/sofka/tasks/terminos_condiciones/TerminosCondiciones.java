@@ -8,6 +8,12 @@ import static co.com.sofka.interactions.Click.clickOn;
 import static co.com.sofka.product_interface.pagina_oferta.BrowserPaginaOferta.*;
 import static jxl.biff.FormatRecord.logger;
 
+/**
+ * Esta clase permite ejecutar los metodos relacionados con
+ * dar click en el check del formulario final
+ * @class TerminosCondiciones
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class TerminosCondiciones implements Task {
 	@Override
 	public <T extends Actor> void performAs(T actor) {

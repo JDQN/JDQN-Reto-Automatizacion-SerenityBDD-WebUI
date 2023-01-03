@@ -4,6 +4,12 @@ import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
+/**
+ * Permite ejecutar los test relacionados con los
+ * escenarios de pruebas en el aplicativo zonafit
+ * @class CompraExitosaRunner
+ * @author jdquimbayo72@misena.edu.co
+ */
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
 		snippets = CucumberOptions.SnippetType.CAMELCASE,

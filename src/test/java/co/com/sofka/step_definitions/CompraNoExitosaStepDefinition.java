@@ -26,6 +26,13 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
 
+
+/**
+ * Esta clase permite ejecutar los pasos
+ * de los features
+ * @class CompraNoExitosaStepDefinition
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class CompraNoExitosaStepDefinition extends Setup{
 	
 	

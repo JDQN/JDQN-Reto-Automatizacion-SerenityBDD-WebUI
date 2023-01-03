@@ -8,6 +8,14 @@ import net.serenitybdd.screenplay.actions.SelectFromOptions;
 
 import static co.com.sofka.product_interface.factura_envio.FacturaEnvioInterface.*;
 
+
+/**
+ * Esta clase permite ejecutar los metodos relacionados con el
+ * formulario para rellenar los campos
+ * @class FacturaEnvioTask
+ * @class ResgistroUsuario
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class FacturaEnvioTask implements Task {
 	
 	private final FacturaEnvio formularioEnvio;
@@ -60,6 +68,7 @@ public class FacturaEnvioTask implements Task {
 				Enter.theValue(formularioEnvio.getPhoneNumber()).into(PHONE_NUMBER)
 		);
 	}
+	
 	
 	
 	public static class ResgistroUsuario {
@@ -120,16 +129,16 @@ public class FacturaEnvioTask implements Task {
 		public FacturaEnvioTask andPassword(String phoneNumber) {
 			this.phoneNumber = phoneNumber;
 			return new FacturaEnvioTask(FacturaEnvio.builder()
-					                            .id(this.id)
-					                            .email(this.email)
-					                            .firstName(this.firstName)
-					                            .lastName(this.lastName)
-					                            .departamento(this.departamento)
-					                            .ciudad(this.ciudad)
-					                            .address(this.address)
-					                            .buildingNumber(this.buildingNumber)
-					                            .phoneNumber(this.phoneNumber)
-					                            .build());
+                   .id(this.id)
+                   .email(this.email)
+                   .firstName(this.firstName)
+                   .lastName(this.lastName)
+                   .departamento(this.departamento)
+                   .ciudad(this.ciudad)
+                   .address(this.address)
+                   .buildingNumber(this.buildingNumber)
+                   .phoneNumber(this.phoneNumber)
+                   .build());
 		}
 	}
 }

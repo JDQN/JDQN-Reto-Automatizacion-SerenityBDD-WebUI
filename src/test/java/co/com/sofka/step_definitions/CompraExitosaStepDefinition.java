@@ -26,7 +26,12 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 
 
-
+/**
+ * Esta clase permite ejecutar los pasos
+ * de los features
+ * @class CompraExitosaStepDefinition
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class CompraExitosaStepDefinition extends Setup {
 	
 	private static final Logger LOGGER = Logger.getLogger(CompraExitosaRunner.class);

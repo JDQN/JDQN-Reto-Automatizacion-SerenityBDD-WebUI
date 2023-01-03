@@ -8,6 +8,12 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import static co.com.sofka.product_interface.pagina_oferta.BrowserPaginaOferta.*;
 import static jxl.biff.FormatRecord.logger;
 
+/**
+ * Esta clase permite ejecutar los metodos relacionados con
+ * finalizar comprar en el carrito de compras
+ * @class FinalizarCompra
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class FinalizarCompra implements Task {
 	
 	@Override

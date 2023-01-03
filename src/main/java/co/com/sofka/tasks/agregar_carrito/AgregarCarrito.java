@@ -8,6 +8,12 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import static co.com.sofka.product_interface.pagina_oferta.BrowserPaginaOferta.*;
 import static jxl.biff.FormatRecord.logger;
 
+/**
+ * Esta clase permite ejecutar los metodos relacionados con las
+ * tareas de agregar al carrito, cerrar el baner del carrito
+ * @class AgregarCarrito
+ * @author jdquimbayo72@misena.edu.co
+ */
 public class AgregarCarrito implements Task {
 	
 	@Override
