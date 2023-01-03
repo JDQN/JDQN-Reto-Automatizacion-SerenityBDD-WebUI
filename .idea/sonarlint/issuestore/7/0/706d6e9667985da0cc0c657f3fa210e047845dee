@@ -1,0 +1,7 @@
+
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ÖîöÕşÿÿÿÿ
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰ğÉ]
+[
+java:S1128"ERemove this unused import 'net.serenitybdd.screenplay.actions.Click'.(€Äø
+ƒ
+java:S1128	"fRemove this unused import 'co.com.sofka.productInterface.paginaOferta.BrowserPaginaOferta.CLICKCHECK'.(§Å û8å¥ºÖ0

@@ -52,4 +52,9 @@ public class FacturaEnvioInterface extends PageObject {
 	         .the("Numero de celular")
 	         .located(id("billing_phone"));
 	
+	public static final Target CEDULAINVALIDA = Target
+         .the("Click departamento")
+         .located(xpath("//body/div[@id='wrapper']/main[@id='main']/div[2]/div[1]/form[2]/div[1]/ul[1]/li[1]/div[1]"));
+	
+	
 }

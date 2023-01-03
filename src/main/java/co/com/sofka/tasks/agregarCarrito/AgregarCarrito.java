@@ -12,15 +12,15 @@ public class AgregarCarrito implements Task {
 	@Override
 	public <T extends Actor> void performAs(T actor) {
 		
-		try {
-			actor.attemptsTo(
-					Scroll.to(AGREGARCART),
-					Click.on(AGREGARCART),
-					Click.on(CLOSE)
-			);
-		} catch (Exception exception) {
-			throw new RuntimeException(exception);
-		}
+			try {
+				actor.attemptsTo(
+						Scroll.to(AGREGARCART),
+						Click.on(AGREGARCART),
+						Click.on(CLOSE)
+				);
+			}catch (Exception exception){
+				throw new RuntimeException(exception);
+			}
 	}
 	
 	public static AgregarCarrito agregarCarrito(){

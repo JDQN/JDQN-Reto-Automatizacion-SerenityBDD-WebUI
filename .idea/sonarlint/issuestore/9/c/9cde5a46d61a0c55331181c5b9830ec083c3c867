@@ -1,0 +1,6 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(äòˆ¨ûÿÿÿÿ
+s
+java:S1128"WRemove this unused import 'co.com.sofka.tasks.terminosCondiciones.TerminosCondiciones'.(·ÐžF8¡½‡¹Ö0
+h
+java:S1128"FRemove this unused import 'net.serenitybdd.screenplay.actions.Scroll'.(ÆðŒÄþÿÿÿÿ8û¨®¹Ö0

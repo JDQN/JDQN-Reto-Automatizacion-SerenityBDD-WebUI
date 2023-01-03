@@ -1,40 +1,42 @@
 package co.com.sofka.stepDefinitions;
 
+import co.com.sofka.exceptions.ValidationTextDoNotMatch;
 import co.com.sofka.models.FacturaEnvio;
-import co.com.sofka.runners.CompraExitosaRunner;
+import co.com.sofka.runners.CompraNoExitosaRunner;
 import co.com.sofka.setups.Setup;
-
 import co.com.sofka.tasks.facturaEnvio.FacturaEnvioTask;
 import com.github.javafaker.Faker;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import net.serenitybdd.screenplay.Performable;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.Assertions;
 
+import static co.com.sofka.exceptions.ValidationTextDoNotMatch.VALIDATION_DO_NOT_MATCH;
+import static co.com.sofka.questions.PracticeForm.practiceForm;
+import static co.com.sofka.tasks.agregarCarrito.AgregarCarrito.agregarCarrito;
 import static co.com.sofka.tasks.finalizarCompra.FinalizarCompra.finalizarCompra;
 import static co.com.sofka.tasks.openLandingPage.openLandingPage;
 import static co.com.sofka.tasks.paginaOferta.PaginaOferta.paginaOferta;
-import static co.com.sofka.tasks.agregarCarrito.AgregarCarrito.agregarCarrito;
-import static co.com.sofka.tasks.pedidoCompleto.PedidoCompletoTask.pedidoCompletoTask;
 import static co.com.sofka.tasks.realizarPedido.RealizarPedidoTask.realizarPedidoTask;
 import static co.com.sofka.tasks.terminosCondiciones.TerminosCondiciones.terminosCondiciones;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.CoreMatchers.equalTo;
 
-
-
-
-public class CompraExitosaStepDefinition extends Setup {
+public class CompraNoExitosaStepDefinition extends Setup{
 	
-	private static final Logger LOGGER = Logger.getLogger(CompraExitosaRunner.class);
+	
+	private static final Logger LOGGER = Logger.getLogger(CompraNoExitosaRunner.class);
 	private static final String ACTOR_NAME = "Messi";
 	private static FacturaEnvio facturaEnvio;
+
 	
-	@Given("el usuario esta en la pagina de inicio del aplicativo zonafit")
-	public void elUsuarioEstaEnLaPaginaDeInicioDelAplicativoZonafit() {
+	@Given("el usuario esta en la pagina de inicio del aplicativo")
+	public void elUsuarioEstaEnLaPaginaDeInicioDelAplicativo() {
 		try {
 			actorSetupTheBrowser(ACTOR_NAME);
 			theActorInTheSpotlight().wasAbleTo(
@@ -46,14 +48,27 @@ public class CompraExitosaStepDefinition extends Setup {
 		}
 	}
 	
-	@When("selecciono los productos para agregar al carrtio de compras")
-	public void seleccionoLosProductosParaAgregarAlCarrtioDeCompras() {
+	
+	@When("selecciona los productos para agreagar al carrtio de compras")
+	public void seleccionaLosProductosParaAgreagarAlCarrtioDeCompras() {
 		try {
 			theActorInTheSpotlight().attemptsTo(
 					(Performable) paginaOferta(),
 					agregarCarrito(),
 					agregarCarrito(),
-					agregarCarrito(),
+					agregarCarrito()
+			);
+		}catch (Exception exception){
+			Assertions.fail(exception.getMessage(), exception);
+			LOGGER.error(exception.getMessage(), exception);
+		}
+	}
+	
+	@And("da click en finalizar compra")
+	public void daClickEnFinalizarCompra() {
+		try {
+			theActorInTheSpotlight().attemptsTo(
+					(Performable) paginaOferta(),
 					finalizarCompra()
 			);
 		}catch (Exception exception){
@@ -62,8 +77,8 @@ public class CompraExitosaStepDefinition extends Setup {
 		}
 	}
 	
-	@And("da click en finalizar compra diligenciar el formulario correctamente")
-	public void daClickEnFinalizarCompraDiligenciarElFormularioCorrectamente() {
+	@And("diligencia el formulario sin ingresar numero de cedula")
+	public void diligenciaElFormularioSinIngresarNumeroDeCedula() {
 		try {
 			UsuarioData();
 			theActorInTheSpotlight().attemptsTo(
@@ -86,23 +101,30 @@ public class CompraExitosaStepDefinition extends Setup {
 		}
 	}
 	
-	@Then("aparece un mensaje Gracias. Tu pedido ha sido recibido.")
-	public void apareceUnMensajeGraciasTuPedidoHaSidoRecibido() {
+	@Then("aparece un mensaje Ingresa tu Documento de Identidad.")
+	public void apareceUnMensajeIngresaTuDocumentoDeIdentidad() {
 		try {
-			theActorInTheSpotlight().attemptsTo(
-					pedidoCompletoTask()
-			);
+			theActorInTheSpotlight()
+				.should(
+						seeThat(
+				practiceForm()
+							.wasFilledWithId("Ingresa tu Documento de Identidad.")
+							.is(),equalTo(true))
+							.orComplainWith(
+							ValidationTextDoNotMatch.class,
+							String.format(VALIDATION_DO_NOT_MATCH, "Ingresa tu Documento de Identidad")
+						));
 		}catch (Exception exception){
 			Assertions.fail(exception.getMessage(), exception);
 			LOGGER.error(exception.getMessage(), exception);
 		}
 	}
+
 	
-	
-	private static void UsuarioData(){
+	private static void UsuarioData() {
 		
 		Faker faker = new Faker();
-		String id = String.valueOf(faker.number().numberBetween(100000,1000000));
+		String id = String.valueOf("");
 		String firstName = faker.name().firstName();
 		String lastName = faker.name().lastName();
 		String departamento = "Amazonas";
@@ -110,10 +132,9 @@ public class CompraExitosaStepDefinition extends Setup {
 		String email = firstName + lastName + "@gmail.com";
 		String address = faker.address().fullAddress();
 		String buildingNumber = faker.address().buildingNumber();
-		String phoneNumber = ("3254587854");
-		//String phoneNumber = faker.phoneNumber().cellPhone();
+		String phoneNumber = ("");
 		
-		facturaEnvio = new FacturaEnvio (id,email,firstName,lastName,departamento,ciudad,address,buildingNumber,phoneNumber);
+		facturaEnvio = new FacturaEnvio(id, email, firstName, lastName, departamento, ciudad, address, buildingNumber, phoneNumber);
 		
 	}
 	
