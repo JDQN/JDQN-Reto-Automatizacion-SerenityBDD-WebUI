@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 		snippets = CucumberOptions.SnippetType.CAMELCASE,
 		publish = true,
-		features = {"src/test/resources/features/compraExitosa/compraExitosa.feature"},//Aqui llamamos la ruta del archivo feature
-		glue = "co.com.sofka.stepDefinitions"//Con la opcion glue llamamos la carpeta stepDefinitions.contact
+		features = {"src/test/resources/features/compra_exitosa/compraExitosa.feature"},//Aqui llamamos la ruta del archivo feature
+		glue = "co.com.sofka.step_definitions"//Con la opcion glue llamamos la carpeta stepDefinitions.contact
 		//plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","html:target/ContactReports.html"}
 		//plugin = {"pretty", "html:target/cucumber-reportsContactRunner.html"} // TODO con la option plugin podemos generar reportes HTML
 )

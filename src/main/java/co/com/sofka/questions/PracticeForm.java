@@ -3,7 +3,7 @@ package co.com.sofka.questions;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-import static co.com.sofka.productInterface.facturaEnvio.FacturaEnvioInterface.*;
+import static co.com.sofka.product_interface.factura_envio.FacturaEnvioInterface.*;
 
 public class PracticeForm implements Question<Boolean> {
 	
@@ -25,7 +25,7 @@ public class PracticeForm implements Question<Boolean> {
 				(CEDULAINVALIDA.resolveFor(actor).containsOnlyText(id));
 	}
 	
-	public static PracticeForm practiceForm(){
+	public static PracticeForm practiceForm() {
 		return new PracticeForm();
 	}
 }
